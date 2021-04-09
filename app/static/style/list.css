@@ -1,0 +1,128 @@
+.section h3
+{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.section
+{
+    background-color: #383838;
+    border: 2px solid #282828;
+    border-radius: 10px;
+    margin-top: 100px !important;
+}
+.element
+{
+    background-color: #343434;
+    border: 2px solid #222;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+    height: 90%;
+    min-height: fit-content;
+    padding-bottom: 3%;
+    width: 100%;
+}
+.element img
+{
+    width: 100%;
+	height: auto;
+    border: 2px solid #282828;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+.element:hover
+{
+    transform: scale(1.05);
+    background-color: #222;
+}
+.element:hover img
+{
+    opacity: 10%;
+}
+.element:hover figcaption
+{
+    opacity: 0%;
+}
+.element:hover .hover-info
+{
+    opacity: 100%;
+}
+.element figcaption
+{
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+.element progress
+{
+    margin-top: 10px;
+    width: 100%;
+    height: 7px;
+    transition: all 0.3s ease-in-out;
+    background-color: #343434;
+    border-color: black;
+}
+.element progress::-moz-progress-bar { background: #C51A4A; }
+.element progress::-webkit-progress-value { background: #C51A4A; }
+.element:hover progress
+{
+    opacity: 0;
+}
+.hover-info
+{
+    position: absolute;
+    display: block;
+	width: 100%;
+	height: 100%;
+    left: 0px;
+	top: 0px;
+    opacity: 0%;
+    padding: 20px;
+    font-size: 0.9vmax;
+    transition: all 0.3s ease-in-out;
+}
+.hover-info h4
+{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5vmax;
+}
+.hover-info .desc
+{
+    border-top: 2px solid #bbb;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.hover-info .bottom
+{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding-right: 40px;
+}
+
+.dlt
+{
+    position: absolute;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-right: 35px !important;
+    text-align: right;
+    width: 100%;
+    z-index: 200; 
+}
+
+.dlt .fa:hover
+{
+    color: #C51A4A !important;
+}

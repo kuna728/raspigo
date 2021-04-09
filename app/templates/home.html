@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/list.css') }}">
+{% endblock %}
+
+{% block content %}
+
+  {% for section in sections %}
+    <div class="row section m-sm-3 p-sm-3 justify-content-center" {% if section.elements|length <5 %} style="overflow-x: hidden;" {% endif %}> 
+      {% if section.elements|length >4 %}<div class="col-sm-1 scroll-button left-button"><i class="fa fa-arrow-left fa-3x"></i></div>{% endif %}
+      <div class="col-sm-10 section-header">
+        <h3><a href="{{ url_for('.show_list', string = section.title|lower) }}">{{ section.title }} </a></h3>
+      </div>
+      {% if section.elements|length >4 %}<div class="col-sm-1 scroll-button right-button"><i class="fa fa-arrow-right fa-3x"></i></div>{% endif %}
+      <div class="row flex-row flex-nowrap scrolling-wrapper {{ 'sc' if section.elements|length >4 }}">
+        {% for element in section.elements %}
+        <div class="col-12 col-xl-3">
+          <div class="element card card-block ">
+            <a href="{{ url_for('.play', tp=element.__tablename__ [0], id = element.id) }}">
+            <figure>
+                <img src="{{ url_for('.download_file', filename=element.__tablename__ + '/' + element.title + '/desktop.png') }}" class="ratio ratio-16x9">
+              <div class="hover-info">
+                <h4>{{ element.title}} {% if section.title=='Ostatnio oglądane' %} {{ element.titleAddition }} {% endif %}</h4>
+                {% for cat in element.cats %} 
+                  <b>{{ cat.name }}{% if cat != element.cats[-1] %},{% endif %}</b>
+                {% endfor %}
+                <span style="float: right;">{{ element.FWmark.replace(',', '.') }} | {{ element.IMDBmark }}</i></span></br>
+                <div class="desc">{{ element.description }}</div>
+                <div class="bottom">
+                {% if element.__tablename__=='series' %} Serial <span style="float: right;"> {{ element.seasons|length }}
+                  {% if element.seasons|length == 1 %}sezon {% elif element.seasons|length < 5 %}sezony {% elif element.seasons|length > 4 %}sezonów {% endif %}</span>
+                  {% else %} Film {% endif %} </br> </div>
+              </div>
+              {% if section.title=='Ostatnio oglądane' %}
+              <progress id="file" value="{{ element.watched_percent }}" max="100"></progress>
+              {% endif %}
+              <figcaption>{{ element.title}} {% if section.title=='Ostatnio oglądane' %} {{ element.titleAddition }} {% endif %}</figcaption>
+            </figure>
+            </a>
+            </div>
+          </div>
+        {% endfor %}
+
+    </div></div>
+
+  {% endfor %}
+
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script>
+const scs = Array.from(document.querySelectorAll(".sc"));
+var i = 0;
+document.querySelectorAll('.right-button').forEach((item, index) => {
+  item.addEventListener('click', event => {
+    console.log('click')
+    scs[index].scrollLeft += scs[index].clientWidth;
+    event.preventDefault(); 
+  })
+})
+i = 0;
+document.querySelectorAll('.left-button').forEach((item, index) => {
+  item.addEventListener('click', event => {
+    scs[index].scrollLeft -= scs[index].clientWidth;
+    event.preventDefault();
+  })
+})
+</script>
+{% endblock %}

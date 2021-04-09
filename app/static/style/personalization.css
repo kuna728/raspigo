@@ -1,0 +1,103 @@
+.user-form{
+    display: inline-block;
+}
+
+.element:hover
+{
+    transform: none;
+    background-color: #343434;
+}
+
+.link:hover{ color:#C51A4A;}
+.button
+{
+	height: 40px;
+	font-size: 20px;
+	background-color: #2F3336;
+	border: 3px solid #282828;
+	border-radius: 10px;
+	width: 100%;
+	text-align: center;
+	transition: all 0.4s ease-in-out;
+	text-decoration: none;
+	color: white;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+h4
+{
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.user{font-size: 20px;}
+.save-button:hover 
+{
+	background-color: #6CC04A;
+}
+
+.nameInput
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	background-color: #2F3336;
+	border: 1px solid #282828;
+	border-radius: 5x;	
+	color: white !important;
+	font-size: 20px;
+}
+.nameInput:focus
+{
+    background-color: #2F3336 !important;
+    border: 2px solid #C51A4A;
+    box-shadow: none;
+}
+
+.imgSelect
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 20px;
+}
+
+.imgSelect img
+{
+	transition: opacity 0.4s ease-in-out;
+    border: none;
+}
+
+.imgSelect:hover img
+{
+	opacity: 1;
+}
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+  opacity: 0.4;
+}
+.element:hover [type=radio] + img {
+	opacity: 0.4;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  opacity: 1 !important;
+  border: 3px solid #C51A4A;
+  border-radius: 50%;
+}
+
+.fa-heart{color:#C51A4A;}
+.fa-heart:hover{color: white;}
+.fa-trash:hover{color:#C51A4A;}
+.fa-trash{color: white;}

@@ -1,0 +1,159 @@
+body
+{
+	background-color: #2F3336;
+	color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+	overflow-x: hidden;
+}
+
+.navbar
+{
+	font-family: 'Ubuntu', sans-serif;
+}
+.navbar-brand
+{
+	font-weight: 700;
+    font-size: 50px;
+    margin-left: 15px;
+    padding: 0;
+}
+.settings
+{
+	margin-right: 15px;
+	text-decoration: none;
+	color: #C0C0C0;
+	font-size: 20px;
+}
+.settings:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+.formC, .form-control:hover, .form-control:focus
+{
+    border-radius: 5px;
+    border: 3px solid #282828;
+    background-color: #707070;
+    color: white;
+}
+
+.content
+{
+	margin-top: 100px;	
+}
+
+.tab-content
+{
+	background-color: #383838 !important;
+	border: 3px solid #282828;
+	border-radius: 10px;
+	margin-bottom: 100px;
+}
+.nav-pills
+{
+	background-color: #383838 !important;
+	border: 3px solid #282828;
+	border-radius: 10px;
+}
+.sett{
+	margin-bottom: 50px;;
+}
+.nav-pills .active
+{
+	background-color: #383838 !important;
+	color: #C51A4A !important;
+	font-weight: bold;	
+}
+.nav-link
+{
+	color: white !important;
+}
+
+.button
+{
+	background-color: #383838;
+	border: 3px solid #282828;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 20px;
+	text-align: center;
+	transition: all 0.4s ease-in-out;
+}
+.abutton
+{
+	text-decoration: none;
+	color: white;
+}
+.abutton:hover
+{
+	text-decoration: none;
+	color: white;
+}
+.abutton:hover .save-button
+{
+	background-color: #6CC04A;
+}
+.abutton:hover .discard-button
+{
+	background-color: #C51A4A;
+}
+.save-button
+{
+	width: 100%;
+	color: white;
+}
+
+h3
+{
+ 	margin-left: 0px !important;
+	text-align: center;
+	padding: 15px;
+	width: 100%;
+	border-bottom: 3px solid #282828;
+	background-color: #343434;
+}
+
+.TABcontent{
+	padding: 15px;
+}
+
+.config-el{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.config-el-p{
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.config-el-h{
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.table .picture
+{
+	height: 40px;
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+.table img{
+	height: 60px;
+}
+
+.table th, .table td
+{
+	vertical-align: middle;
+}
+
+.disabled
+{
+	background-color: #C51A4A !important;
+}
+
+.disabled a
+{
+	opacity: 100% !important;
+}

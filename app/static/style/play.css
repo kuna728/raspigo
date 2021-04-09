@@ -1,0 +1,145 @@
+.content
+{
+    background-color: #383838;;
+    border: 2px solid #222A;
+    border-radius: 10px;
+    margin-top: 100px !important;
+}
+.content a
+{
+    text-decoration: none;
+    color: white;
+}
+.content a:hover
+{
+    color: #C51A4A;
+}
+.content h4
+{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.content h3
+{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.embed-responsive-item
+{
+    background-color: black !important;
+}
+@media screen and (max-width: 1139px) {
+    .infos{
+        border-top: 2px solid #222A;
+    }
+}
+@media screen and (min-width: 1140px) {
+    .infos{
+        border-left: 2px solid #222A;
+    }
+}
+
+.accordion
+{
+    margin-top: 20px;
+    padding: 0px !important;
+}
+.accordion .card
+{
+    background-color: #383838;
+}
+.accordion .card-header
+{
+    background-color: #282828;
+    height: 50px;
+    padding-top: 5px;
+}
+.accordion .card-header .btn-link
+{
+    color: white;
+}
+.accordion .card-header .btn-link:hover
+{
+    color: #C51A4A;
+    text-decoration: none;
+}
+.accordion .card-header .btn-link:focus
+{
+    color: #C51A4A;
+    text-decoration: none;
+}
+.accordion .list-group-item
+{
+    background-color: #2F3336;
+    height: 40px;
+    padding-top: 5px;
+}
+.accordion .card-body
+{
+    padding: 0px !important;
+}
+
+.accordion .list-group-item:hover
+{
+    background-color: #383838;
+}
+
+.list-group a
+{
+    text-decoration: none !important;
+    color: white;
+}
+
+.infos img
+{
+    height: 60px;
+	width: 60px;
+	opacity: 1;
+	z-index: 200;
+}
+
+
+.footer
+{
+    margin-top: 50px;
+    padding-top: 20px;
+    background-color: #222;
+    text-align: center;
+}
+
+.video-fluid {
+    width: 100%;
+    height: auto;
+  }
+.video-fluid:focus
+{
+    outline: none;
+    border: none;
+}
+
+.button
+{
+	background-color: #383838;
+	border: 2px solid #282828;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 20px;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+}
+.button:hover
+{
+    background-color: #323232;
+}
+.abutton
+{
+	text-decoration: none;
+	color: white;
+}
+.abutton:hover
+{
+	text-decoration: none;
+	color: white;
+}
+

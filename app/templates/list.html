@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/list.css') }}">
+{% endblock %}
+
+{% block content %}
+      <div class="row section m-sm-3 p-sm-3">
+        <div class="col-sm-12 section-header">
+          <h3>{{ title|capitalize if title else '' }}</h3>
+        </div>
+        {% for element in content %}
+        <div class="col-sm-12 col-xl-3">
+          {% if title=='ostatnio oglądane' %} <div class="dlt">
+            <a href="{{ url_for('.delete_last_watched', tp=element.__tablename__[0], id=element.id) }}"><i class="fa fa-trash"></i></a></div> {% endif %}
+          <div class="element card card-block ">
+            <a href="{{ url_for('.play', tp=element.__tablename__ [0], id = element.id) }}">
+            <figure>
+              <img src="{{ url_for('.download_file', filename=element.__tablename__ + '/' + element.title + '/desktop.png') }}" class="ratio ratio-16x9">
+              <div class="hover-info">
+                <h4>{{ element.title }} </h4>
+                {% for cat in element.cats %} 
+                  <b>{{ cat.name }}{% if cat != element.cats[-1] %},{% endif %}</b>
+                {% endfor %}
+                <span style="float: right;">{{ element.FWmark.replace(',', '.') }} | {{ element.IMDBmark }}</i></span></br>
+                <div class="desc">{{ element.description }}</div>
+                <div class="bottom">{% if element.__tablename__=='series' %} Serial <span style="float: right;"> {{ element.seasons|length }}
+                  {% if element.seasons|length == 1 %}sezon {% elif element.seasons|length < 5 %}sezony {% elif element.seasons|length > 5 %}sezonów {% endif %}</span>
+                  {% else %} Film {% endif %} </br></div> 
+              </div>
+              <figcaption>{{ element.title }}</figcaption>
+            </figure></a>
+            </div>
+          </div>
+        {% endfor %}
+
+        </div>
+        
+
+      {% endblock %}

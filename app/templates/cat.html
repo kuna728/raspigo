@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/list.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/cat.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="row section m-sm-3 p-sm-3">
+    {% for category in categories %}
+    <div class="col-sm-12 col-xl-3"><a href="{{ url_for('.show_list', string=category.name) }}">
+        <div class="element card card-block {{ 'count-0' if not category.count }}">
+        {{ category.name }}  <div class="follow"><a href="{{ url_for('.follow_category', id=category.id) }}">
+            <i class="fa fa-heart {{ 'ds' if category.followed else 'en' }}"></i></a></div> 
+        <div class="count">{{ category.count }}</div> 
+    </div></a></div>
+    {% endfor %}
+    </div>
+{% endblock %}

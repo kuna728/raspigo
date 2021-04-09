@@ -1,0 +1,134 @@
+body
+{
+	background-color: #2F3336;
+	color: #efefef;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+	overflow-x: hidden;
+}
+
+.navbar-brand
+{
+	font-weight: 700;
+    font-size: 50px;
+    margin-left: 15px;
+    padding: 0;
+    color: white !important;
+}
+
+.navbar
+{
+    background-color:#2F3336 !important;
+    color: white !important;
+}
+
+.nav-link
+{
+    color: #C0C0C0 !important;
+    font-size: 20px;
+}
+.nav-link:hover
+{
+    color: white !important;
+}
+.nav-item img
+{
+    height: 40px;
+}
+
+.dropdown .dropdown-menu 
+{
+  color: white !important;
+  background-color: #383838;
+  border-color: #282828;
+}
+.dropdown-divider
+{
+    border-color: #282828;
+}
+.dropdown-item
+{
+    color: white !important;  
+}
+.dropdown-item:hover
+{
+    background-color: #383838;
+    color: #C51A4A !important;
+}
+.profile-header
+{
+    font-weight: bold;
+}
+.profile-header:hover
+{
+    color: white !important; 
+}
+
+
+.form-control
+{
+    color: white !important;
+    background-color: #383838;
+    border: 2px solid #282828;;
+    text-align: center;
+}
+
+.form-control:focus
+{
+    background-color: #2F3336 !important;
+    border: 2px solid #C51A4A;
+    box-shadow: none;
+}
+.search:hover
+{
+    color:#C51A4A;
+}
+.search{
+    font-size: 25px;
+}
+
+
+
+.sticky-top {
+    transition: all 0.3s ease-in;
+}
+
+.stuck .sticky-top {
+    background-color: #222 !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.section a 
+{
+    text-decoration: none;
+    color: white;
+}
+
+
+.footer
+{
+    margin-top: auto;
+    padding-top: 20px;
+    background-color: #222;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 40px;
+}
+.footer a {
+    color: white;
+}
+
+.container-fluid
+{
+    min-height: 100%;
+}
+
+.btn-search{
+    color: white;
+    font-size: 20px;
+    padding: 0;
+}
+.btn-search:hover{
+    color: #C51A4A;
+}

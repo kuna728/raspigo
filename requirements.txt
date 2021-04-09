@@ -1,0 +1,16 @@
+alembic
+beautifulsoup4
+Flask
+Flask-Bootstrap
+Flask-Login
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-WTF
+google
+itsdangerous
+Jinja2
+SQLAlchemy
+Werkzeug
+WTForms
+Selenium
+pyvirtualdisplay

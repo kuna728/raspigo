@@ -1,0 +1,35 @@
+.element
+{
+    font-size: 22px;
+    padding-top: 20px;
+    padding-bottom: 0px !important;
+    display: inline-block;
+} 
+
+.count-0
+{
+    background-color: #484848 !important;
+}
+
+.col-sm-12
+{
+    margin-bottom: 20px;
+}
+
+.follow
+{
+    float: right;
+    height: 100%;
+    font-size: 22px;
+}
+
+.count
+{
+    float:right;
+    padding-right: 25px;
+}
+
+.en:hover{ color: #C51A4A;}
+.ds:hover{ color: white;}
+.en{ color: white;}
+.ds{ color: #C51A4A;}

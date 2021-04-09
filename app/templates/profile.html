@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+     <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>raspiGO</title>
+
+     <meta name="description" content="Opis zawartości strony dla wyszukiwarek">
+     <meta name="keywords" content="słowa, kluczowe, opisujące, zawartość">
+     <meta name="author" content="Jan Programista">
+
+     <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link rel="stylesheet" href="{{ url_for('static', filename='style/profile.css') }}">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-dark">
+		  <a class="navbar-brand mr-auto" href="#">raspi<span style="color:#C51A4A">GO</span></a>
+		  <a class="settings" href="{{ url_for('.config') }}"> Ustawienia </a>
+	</nav>
+	{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+	  <div class="alert alert-warning" role="alert">
+		{{ message }}	  </div>
+      {% endfor %}
+   {% endif %}
+{% endwith %} 
+	<div class="container"><div class="row avatars">
+	  	<div class="col-10 offset-1">
+			<div class="row justify-content-center">
+	  			
+				{% for user in users %}
+				{% if user.enabled %}
+			  	<div class="col-6 col-xl-2">
+					<figure class="prof">
+			  			<a href="{{ url_for('.user_login', id=user.id) }}"><img src="{{ url_for('static', filename='img/avatars/'+ user.picture +'.png') }}"></a>
+			  			<figcaption class="description">{{ user.username }}</figcaption>
+			  		</figure>
+			  	</div>
+				{% endif %}
+				{% endfor %}
+			  	<div class="col-6 col-xl-2">
+					<figure class="prof" data-toggle="modal" data-target="#exampleModalCenter">
+			  			<a href="#"><img src="{{ url_for('static', filename='img/avatars/new.png') }}"></a>
+			  			<figcaption>Nowy</figcaption>
+			  		</figure>
+			  	</div>
+				
+				  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <h5 class="modal-title" id="exampleModalLongTitle">Nowy profil</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</div>
+						<div class="modal-body"><form method="POST" action="">
+							{{ form.hidden_tag() }}
+						  Podaj nazwę:
+						  <!-- <input class="form-control nameInput" type="search" aria-label="Search"> -->
+						  {{ form.name(class_="form-control nameInput") }}
+						  Wybierz awatar:</br>
+						  <div class="d-flex justify-content-center">
+							{% for subfield in form.pictures %}
+							<div class="imgSelect">
+								<label><td>{{ subfield }}</td>
+								<img src="{{ url_for('static', filename='img/avatars/'+ subfield.data +'.png') }}"></label>
+							</div>
+							{% endfor %}
+							</div>
+						</div></br>
+						<div class="modal-footer">
+						  <div class="button discard-button mr-auto" data-dismiss="modal">Anuluj</div>
+						  {{ form.submit(class_="button save-button") }}
+						  <!-- <div class="button save-button">Utwórz</div> -->
+						</div>
+					</form>
+					  </div>
+					</div>
+				  </div>
+				
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+</body>
+
+</html>

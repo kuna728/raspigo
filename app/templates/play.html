@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/play.css') }}">
+{% endblock %}
+
+{% block content %}
+        <div class="row content m-sm-3 py-4 px-2">
+            <div class="col-sm-12 col-xl-9">
+                  <video class="video-fluid z-depth-1" id="video-player" loop controls>
+                    <source src="{{ url_for('.download_file', filename=videoUrl) }}#t={{ watched_time }},20000" type="video/mp4" />
+                    {% for el in subtitles %}
+                      {% if content.__tablename__=='series' %}
+                      <track label="{{ el }}" kind="subtitles" src="{{ url_for('.download_file', filename=content.__tablename__+'/'+content.title+'/S{}/E{}'.format(*season_episode)+'/{}.vtt'.format(el)) }}" {{ 'default' if el=='Polish' }}>
+                      {% else %}
+                      <track label="{{ el }}" kind="subtitles" src="{{ url_for('.download_file', filename=content.__tablename__+'/'+content.title+'/{}.vtt'.format(el)) }}" {{ 'default' if el=='Polish' }}>
+                      {% endif %}
+                    {% endfor %}
+                  </video>
+                
+            </div>
+            <div class="col-sm-12 col-xl-3 infos mt-4 pt-3 mt-xl-0">
+
+                <h4>{{ content.title }}
+                {% if content.__tablename__=='series' %} S{{ "%.2i"|format(season_episode[0]) }}E{{ "%.2i"|format(season_episode[1]) }} {% endif %}</h4>
+                <h3>
+                <span style>{{ content.FWmark }} | {{ content.IMDBmark }}</span>
+                <span style="float: right;">{{ content.year }}</span></br>
+                <div style="margin-top: 15px;">
+                {% for cat in content.cats %} 
+                <b><a href="{{ url_for('.show_list', string = cat.name|lower) }}">{{ cat.name }}</a>{% if cat != content.cats[-1] %},{% endif %}</b>
+                {% endfor %} </div></h3>
+                <div class="desc">{{ content.description }}</div>
+
+
+                  {% if content.__tablename__=='series' %}
+                  <div class="accordion" id="accordionExample">
+                    {% for season in content.seasons %}
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="{{ '#collapse' ~ season.season }}" aria-expanded="true" aria-controls=="{{ '#collapse' ~ season.season }}" >
+                            Sezon {{ season.season }}
+                          </button>
+                        </h5>
+                      </div>
+                  
+                      <div id="{{ 'collapse' ~ season.season }}" class="{{ 'collapse show' if season.season==season_episode[0] else 'collapse' }}
+                          " aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group">
+                              {% for episode in range(season.episodes) %}
+                                <li class="list-group-item">
+                                  <a href="{{ url_for('.play', tp='s', id = content.id, se='S%.2iE%.2i'|format(season.season, episode+1)) }}"
+                                  style="{{ 'color:#C51A4A !important;' if (episode+1)==(season_episode[1]) and season.season==season_episode[0] }}">Odcinek {{ episode+1 }}</a></li>
+                              {% endfor %}
+                              </ul>
+                        </div>
+                      </div>
+                      </div>
+
+                    {% endfor %}
+                  </div>
+                 
+                  {% endif %}
+                  <div class="btns">
+                  <div class="form-row">
+                    <div class="col-4">
+                      <a href="{{ content.FWlink }}" class="abutton" target="_blank"><div class="button discard-button">Filmweb</div></a>
+                    </div>
+                    <div class="col-4">
+                      <a href="{{ content.IMDBlink }}" class="abutton" target="_blank"><div class="button discard-button">IMDB</div></a>
+                    </div>
+                    <div class="col-4">
+                      <a href="{{ url_for('.config_content', tp=content.__tablename__[0], id=content.id) }}" class="abutton" target="_blank">
+                        <div class="button discard-button">Edytuj</div></a>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+window.onbeforeunload = function(e) {
+e.preventDefault()
+var vid = document.getElementById("video-player");
+$.ajax({
+url: "{{ url_for('.save_progress', tp=content.__tablename__[0], id=content.id, _s=season_episode[0], _e=season_episode[1]) }}"+vid.currentTime+':'+vid.duration+"/" ,
+type: "get", //request type,
+success:function(result){
+console.log(result.abc);
+      }
+    });
+return;
+  }
+</script>
+{% endblock %}

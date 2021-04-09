@@ -1,0 +1,175 @@
+html{
+	height: 100%;
+}
+body
+{
+	background-color: #2F3336;
+	color: #C0C0C0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    overflow-x: hidden;
+	height: 100%;
+}
+
+.navbar-brand
+{
+	font-weight: 700;
+    font-size: 50px;
+    margin-left: 15px;
+    padding: 0;
+    color: white;
+}
+
+.settings
+{
+	margin-right: 15px;
+	text-decoration: none;
+	color: #C0C0C0;
+	font-size: 20px;
+}
+.settings:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+.avatars
+{
+	margin-top: 15%;
+	text-align: center;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+	font-size: 25px;
+}
+
+.avatars img
+{
+	max-width: 100%;
+	height: auto;
+	opacity: 0.5;
+}
+ 
+.prof:hover img
+{
+	opacity: 1;
+}
+.prof:hover figcaption
+{
+	color: white;
+}
+.prof img
+{
+	transition: all 0.4s ease-in-out;
+} 
+.prof figcaption
+{
+	transition: all 0.4s ease-in-out;
+}
+
+
+
+.modal-content
+{
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #2F3336;
+	border: 2px solid #222;
+	border-radius: 10px;
+}
+.modal-header
+{
+	background-color: #383838;
+	border-bottom: 1px solid #222;
+}
+.modal-title
+{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.modal-body
+{
+	border-bottom: none;
+	text-align: center;
+}
+.modal-footer
+{
+	border-top: none;
+}
+
+.modal-footer .button
+{
+	height: 40px;
+	font-size: 20px;
+	background-color: #343434;
+	border: 3px solid #282828;
+	border-radius: 10px;
+	width: 47%;
+	text-align: center;
+	transition: all 0.4s ease-in-out;
+	text-decoration: none;
+	color: white;
+}
+
+.modal-footer .save-button:hover 
+{
+	background-color: #6CC04A;
+}
+.modal-footer .discard-button:hover 
+{
+	background-color: #C51A4A;
+}
+
+.nameInput
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	background-color: #343434;
+	border: 1px solid #282828;
+	border-radius: 5px;	
+	color: white !important;
+	font-size: 20px;
+}
+.nameInput:focus
+{
+    background-color: #2F3336 !important;
+    border: 2px solid #C51A4A;
+    box-shadow: none;
+}
+
+.imgSelect
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 20px;
+}
+
+.imgSelect img
+{
+	transition: opacity 0.4s ease-in-out;
+}
+
+.imgSelect:hover img
+{
+	opacity: 1;
+}
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  opacity: 1 !important;
+  border: 2px solid #C51A4A;
+  border-radius: 50%;
+}

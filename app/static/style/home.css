@@ -1,0 +1,41 @@
+.flex-row
+{
+    width: 100% !important;
+    overflow-x:scroll ; 
+    overflow-y: hidden;
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrolling-wrapper{
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: scroll;
+}
+
+.scroll-button
+{
+    text-align: center;
+    color: #C51A4A;
+    transition: all 0.2s ease-in-out;
+}
+.scroll-button:hover
+{
+    font-size: larger;
+    font-weight: bold;
+}
+.scrolling-wrapper::-webkit-scrollbar{
+    height: 8px;
+    width: 80%;
+    background: #222;
+    margin: 5px !important;
+}
+.scrolling-wrapper::-webkit-scrollbar-thumb:horizontal{
+    background: #C51A4A;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .scroll-button {
+        display: none !important;
+    }
+}
