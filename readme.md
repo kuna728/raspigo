@@ -1,4 +1,4 @@
-# raspiGO
+# RaspiGO
 
 RaspiGo to system umożliwiający utworzenie domowego netflixa z twojej prywatnej biblioteki filmów i seriali. System jest dedykowany dla komputera Raspberry Pi pod kontrolą systemu operacyjnego Raspberry Pi OS.
 
@@ -36,7 +36,7 @@ Użytkownik może dodać napisy do filmów/seriali przez umieszczenie ich w odpo
 
 ## Rozbudowany panel konfiguracyjny
 
-Po dodanie treści na dysk i podpięciu go do Raspberry użytkownik nie musi mieć żadnego fizycznego kontaktu z maliną. Umożliwia to rozbudowany panel konfiguracyjny, który oferuję wiele funkcji konfiguracyjnych.
+Po dodaniu treści na dysk i podpięciu go do Raspberry użytkownik nie musi mieć żadnego fizycznego kontaktu z maliną. Umożliwia to rozbudowany panel konfiguracyjny, który oferuję wiele funkcji konfiguracyjnych.
 
 ## Responsywność
 
@@ -101,15 +101,11 @@ Wszystkie potrzebne rzeczy zostały pobrane. Można teraz przejść do pierwszej
 
 Aby dodać aplikację do autostartu na Raspberry Pi OS otwórz plik */home/pi/.bashrc* w swoim ulubionym edytorze tekstu:
 
-  
-
-sudo nano /home/pi/.bashrc
+	sudo nano /home/pi/.bashrc
 
 Następnie dopisz na końcu pliku linijkę:
 
-  
-
-python3 /sciezka_do_katalogu_z_aplikacja/raspigo.py
+	python3 /sciezka_do_katalogu_z_aplikacja/raspigo.py
 
 Aplikacja jest gotowa do uruchomienia:
 	
